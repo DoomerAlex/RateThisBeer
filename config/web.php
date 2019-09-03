@@ -7,20 +7,22 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'ru',
+    'layout' => 'RateThisBeer',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'i-N1aFLFJfxTFFyLOebZ2KAmqzTlrNe5',
+            'baseUrl' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\User', // класс авторизации
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -43,15 +45,21 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
+            'enablePrettyUrl' => true, // Включает ЧПУ
+            'showScriptName' => false, // Показывает имя входного скрипта
+            'enableStrictParsing' => false,
+            'rules' => [ // Раутинг
+                'beer' => 'beer/index',
+                '' => 'main/index'
             ],
         ],
-        */
     ],
+//    'modules' => [
+//        'admin' => [
+//            'class' => 'app\modules\admin\Module',
+//        ],
+//    ],
     'params' => $params,
 ];
 
