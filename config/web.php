@@ -55,11 +55,12 @@ $config = [
             ],
         ],
     ],
-//    'modules' => [
-//        'admin' => [
-//            'class' => 'app\modules\admin\Module',
-//        ],
-//    ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'layout' => 'main',
+        ],
+    ],
     'params' => $params,
 ];
 
